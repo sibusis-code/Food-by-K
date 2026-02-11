@@ -100,6 +100,23 @@ document.querySelectorAll('.info-card').forEach(item => {
     observer.observe(item);
 });
 
+// Observe friend cards
+document.querySelectorAll('.friend-card').forEach((item, index) => {
+    item.style.opacity = '0';
+    item.style.transform = 'translateY(30px)';
+    item.style.transition = `all 0.6s ease ${index * 0.1}s`;
+    observer.observe(item);
+});
+
+// Observe chef content
+const chefContent = document.querySelector('.chef-content');
+if (chefContent) {
+    chefContent.style.opacity = '0';
+    chefContent.style.transform = 'translateY(30px)';
+    chefContent.style.transition = 'all 0.8s ease';
+    observer.observe(chefContent);
+}
+
 // Add loading animation
 window.addEventListener('load', () => {
     document.body.style.opacity = '0';
