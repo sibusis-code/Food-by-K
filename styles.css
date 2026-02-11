@@ -116,7 +116,12 @@ body {
 /* Hero Section */
 .hero {
     height: 100vh;
-    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    background: 
+        linear-gradient(135deg, rgba(26, 26, 46, 0.85) 0%, rgba(22, 33, 62, 0.8) 50%, rgba(15, 52, 96, 0.85) 100%),
+        url('img/WhatsApp%20Image%202026-02-11%20at%2011.57.32%20(2).jpeg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
     position: relative;
     display: flex;
     align-items: center;
@@ -124,6 +129,17 @@ body {
     text-align: center;
     color: var(--white);
     overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at center, transparent 0%, rgba(0, 0, 0, 0.4) 100%);
+    pointer-events: none;
 }
 
 .hero::after {
@@ -138,8 +154,8 @@ body {
             45deg,
             transparent,
             transparent 10px,
-            rgba(255, 107, 53, 0.03) 10px,
-            rgba(255, 107, 53, 0.03) 20px
+            rgba(255, 107, 53, 0.05) 10px,
+            rgba(255, 107, 53, 0.05) 20px
         );
     pointer-events: none;
 }
@@ -183,7 +199,7 @@ body {
     font-weight: 900;
     margin-bottom: 1rem;
     letter-spacing: 3px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7), 0 0 30px rgba(255, 107, 53, 0.3);
 }
 
 .hero-tagline {
@@ -196,7 +212,8 @@ body {
 
 .kasi-badge {
     display: inline-block;
-    margin-top: 1rem;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
     padding: 10px 25px;
     background: var(--kasi-gradient);
     border-radius: 50px;
@@ -204,6 +221,7 @@ body {
     font-size: 1rem;
     letter-spacing: 1px;
     animation: pulse 2s ease-in-out infinite;
+    box-shadow: 0 5px 20px rgba(255, 107, 53, 0.4);
 }
 
 @keyframes pulse {
@@ -213,13 +231,15 @@ body {
 
 .hero-description {
     font-size: 1.2rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
     opacity: 0.95;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 .cta-button {
     display: inline-block;
     padding: 15px 40px;
+    margin-top: 1.5rem;
     background: var(--kasi-gradient);
     color: var(--white);
     text-decoration: none;
@@ -726,6 +746,15 @@ body {
         display: block;
     }
 
+    .hero {
+        background-attachment: scroll;
+        padding: 100px 20px 60px;
+    }
+
+    .hero-content {
+        padding: 0 15px;
+    }
+
     .hero-title {
         font-size: 2.5rem;
     }
@@ -736,6 +765,19 @@ body {
 
     .hero-description {
         font-size: 1rem;
+        padding: 0 10px;
+    }
+
+    .kasi-badge {
+        font-size: 0.85rem;
+        padding: 8px 20px;
+        margin-bottom: 1.5rem;
+    }
+
+    .cta-button {
+        margin-top: 1rem;
+        padding: 14px 35px;
+        font-size: 0.95rem;
     }
 
     .section-header h2 {
@@ -759,7 +801,29 @@ body {
 
 @media (max-width: 480px) {
     .hero-title {
-        font-size: 2rem;
+        font-size: 1.8rem;
+    }
+
+    .hero-tagline {
+        font-size: 1rem;
+        letter-spacing: 2px;
+    }
+
+    .hero-description {
+        font-size: 0.9rem;
+    }
+
+    .kasi-badge {
+        font-size: 0.75rem;
+        padding: 8px 15px;
+        margin-bottom: 1.5rem;
+    }
+
+    .cta-button {
+        margin-top: 1.5rem;
+        padding: 12px 30px;
+        font-size: 0.85rem;
+        letter-spacing: 1px;
     }
 
     .logo {
